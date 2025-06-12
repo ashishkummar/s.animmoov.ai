@@ -62,52 +62,11 @@ export default function App() {
                   
                   <div className="hero-graphic">
                     <div className="brain-container">
-                      <svg className="brain-svg" viewBox="0 0 400 300" fill="none">
-                        {/* Left brain (green) */}
-                        <path
-                          d="M50 150 Q50 80 120 80 Q160 60 180 100 Q190 130 170 160 Q150 200 120 200 Q80 220 50 180 Z"
-                          stroke="#4ade80"
-                          strokeWidth="3"
-                          fill="none"
-                        />
-                        
-                        {/* Right brain (cyan) */}
-                        <path
-                          d="M220 100 Q240 60 280 80 Q350 80 350 150 Q350 180 320 200 Q280 220 250 200 Q230 160 240 130 Q220 100 220 100 Z"
-                          stroke="#06b6d4"
-                          strokeWidth="3"
-                          fill="none"
-                        />
-                        
-                        {/* Neural connections - left side (green) */}
-                        <circle cx="80" cy="120" r="6" fill="#4ade80" />
-                        <circle cx="120" cy="140" r="6" fill="#4ade80" />
-                        <circle cx="90" cy="160" r="6" fill="#4ade80" />
-                        <circle cx="140" cy="180" r="6" fill="#4ade80" />
-                        
-                        <line x1="80" y1="120" x2="120" y2="140" stroke="#4ade80" strokeWidth="2" />
-                        <line x1="90" y1="160" x2="140" y2="180" stroke="#4ade80" strokeWidth="2" />
-                        <line x1="120" y1="140" x2="90" y2="160" stroke="#4ade80" strokeWidth="2" />
-                        
-                        {/* Neural connections - right side (cyan) */}
-                        <circle cx="260" cy="120" r="6" fill="#06b6d4" />
-                        <circle cx="300" cy="140" r="6" fill="#06b6d4" />
-                        <circle cx="280" cy="160" r="6" fill="#06b6d4" />
-                        <circle cx="320" cy="180" r="6" fill="#06b6d4" />
-                        <circle cx="340" cy="130" r="6" fill="#06b6d4" />
-                        
-                        <line x1="260" y1="120" x2="300" y2="140" stroke="#06b6d4" strokeWidth="2" />
-                        <line x1="300" y1="140" x2="280" y2="160" stroke="#06b6d4" strokeWidth="2" />
-                        <line x1="280" y1="160" x2="320" y2="180" stroke="#06b6d4" strokeWidth="2" />
-                        <line x1="300" y1="140" x2="340" y2="130" stroke="#06b6d4" strokeWidth="2" />
-                        
-                        {/* Additional connecting lines */}
-                        <line x1="340" y1="130" x2="360" y2="110" stroke="#06b6d4" strokeWidth="2" />
-                        <circle cx="360" cy="110" r="4" fill="#06b6d4" />
-                        
-                        <line x1="320" y1="180" x2="340" y2="200" stroke="#06b6d4" strokeWidth="2" />
-                        <circle cx="340" cy="200" r="4" fill="#06b6d4" />
-                      </svg>
+                      <img 
+                        src="/src/images/brain_logo-transparent.png" 
+                        alt="ProV9 Neural Brain Logo" 
+                        className="brain-image"
+                      />
                     </div>
                   </div>
                 </div>
