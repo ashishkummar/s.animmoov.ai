@@ -4,7 +4,8 @@ import { useState } from 'react'
 import './App.css'
 import About from './About'
 import Solutions from './Solutions'
-import Blog from './Blog'
+import Blog from './Blog';
+import brainLogo from './images/brain_logo-transparent.png';
 
 export default function App() {
   const [isModalOpen, setIsModalOpen] = useState(false)
@@ -63,7 +64,7 @@ export default function App() {
                   <div className="hero-graphic">
                     <div className="brain-container">
                       <img 
-                        src="/src/images/brain_logo-transparent.png" 
+                        src={brainLogo} 
                         alt="ProV9 Neural Brain Logo" 
                         className="brain-image"
                       />
