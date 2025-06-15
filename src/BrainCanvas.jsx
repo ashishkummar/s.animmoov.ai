@@ -56,14 +56,16 @@ const BrainCanvas = () => {
 
       currentCtx.drawImage(imageRef.current, offsetX, offsetY, scaledWidth, scaledHeight);
 
-      shimmerAnimationRef.current = (shimmerAnimationRef.current + 0.007) % 2;
-      const gradientW = currentCanvas.width * 0.5;
+      shimmerAnimationRef.current = (shimmerAnimationRef.current + 0.0024) % 2; // Slower speed, approx 7s per pass
+      const gradientW = currentCanvas.width * 0.6; // Widened shimmer band
       const gradientXVal = (shimmerAnimationRef.current * (currentCanvas.width + gradientW)) - gradientW;
 
       const shimmerGradient = currentCtx.createLinearGradient(gradientXVal, 0, gradientXVal + gradientW, 0);
-      shimmerGradient.addColorStop(0, 'rgba(255, 255, 255, 0)');
-      shimmerGradient.addColorStop(0.5, 'rgba(255, 255, 255, 0.6)'); // Increased opacity for more prominence
-      shimmerGradient.addColorStop(1, 'rgba(255, 255, 255, 0)');
+      shimmerGradient.addColorStop(0,    'rgba(255, 255, 255, 0)');    // Start transparent
+      shimmerGradient.addColorStop(0.4,  'rgba(255, 255, 255, 0.1)'); // Begin fade-in
+      shimmerGradient.addColorStop(0.5,  'rgba(255, 255, 255, 0.7)'); // Peak highlight (more opaque)
+      shimmerGradient.addColorStop(0.6,  'rgba(255, 255, 255, 0.1)'); // Begin fade-out
+      shimmerGradient.addColorStop(1,    'rgba(255, 255, 255, 0)');    // End transparent
 
       currentCtx.globalCompositeOperation = 'source-atop';
       currentCtx.fillStyle = shimmerGradient;
