@@ -7,7 +7,7 @@ import Solutions from './Solutions'
 import Blog from './Blog';
 // brainLogo import is now handled by BrainCanvas.jsx
 import BrainCanvas from './BrainCanvas'; // Import the new component
-import headerLogo from './images/logo_hd.png'; // Import the new header logo
+import headerLogo from './images/anim-new-logo-trans.png'; // Import the new header logo
 
 export default function App() {
   const [isModalOpen, setIsModalOpen] = useState(false)
@@ -79,6 +79,7 @@ export default function App() {
         {isModalOpen && (
           <div className="modal-overlay" onClick={closeModal}>
             <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+              <img src={headerLogo} alt="ProV9 Neural Logo" className="modal-logo-img" />
               <button className="modal-close" onClick={closeModal}>
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                   <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
