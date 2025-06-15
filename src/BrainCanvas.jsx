@@ -62,7 +62,7 @@ const BrainCanvas = () => {
 
       const shimmerGradient = currentCtx.createLinearGradient(gradientXVal, 0, gradientXVal + gradientW, 0);
       shimmerGradient.addColorStop(0, 'rgba(255, 255, 255, 0)');
-      shimmerGradient.addColorStop(0.5, 'rgba(255, 255, 255, 0.4)');
+      shimmerGradient.addColorStop(0.5, 'rgba(255, 255, 255, 0.6)'); // Increased opacity for more prominence
       shimmerGradient.addColorStop(1, 'rgba(255, 255, 255, 0)');
 
       currentCtx.globalCompositeOperation = 'source-atop';
