@@ -1,17 +1,21 @@
 
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, Link, NavLink } from 'react-router-dom'
 import { useState } from 'react'
 import './App.css'
 import About from './About'
 import Solutions from './Solutions'
 import Blog from './Blog';
-import brainLogo from './images/brain_logo-transparent.png';
+// brainLogo import is now handled by BrainCanvas.jsx
+import BrainCanvas from './BrainCanvas'; // Import the new component
+import headerLogo from './images/logo_hd.png'; // Import the new header logo
 
 export default function App() {
   const [isModalOpen, setIsModalOpen] = useState(false)
 
   const openModal = () => setIsModalOpen(true)
   const closeModal = () => setIsModalOpen(false)
+
+
   return (
     <Router>
       <div className="app">
@@ -20,11 +24,7 @@ export default function App() {
           <div className="container">
             <Link to="/" className="logo">
               <div className="logo-icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                  <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M2 17L12 22L22 17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M2 12L12 17L22 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
+                <img src={headerLogo} alt="ProV9 Neural Logo" className="header-logo-img" />
               </div>
               <div className="logo-text">
                 <span className="logo-title">ProV9 Neural</span>
@@ -33,9 +33,9 @@ export default function App() {
             </Link>
             
             <nav className="nav">
-              <Link to="/about" className="nav-link">About</Link>
-              <Link to="/solutions" className="nav-link">Solutions</Link>
-              <Link to="/blog" className="nav-link">Blog</Link>
+              <NavLink to="/about" className={({ isActive }) => "nav-link" + (isActive ? " active" : "")}>About</NavLink>
+              <NavLink to="/solutions" className={({ isActive }) => "nav-link" + (isActive ? " active" : "")}>Solutions</NavLink>
+              <NavLink to="/blog" className={({ isActive }) => "nav-link" + (isActive ? " active" : "")}>Blog</NavLink>
             </nav>
             
             <button className="demo-btn" onClick={openModal}>Get a Demo</button>
@@ -63,11 +63,7 @@ export default function App() {
                   
                   <div className="hero-graphic">
                     <div className="brain-container">
-                      <img 
-                        src={brainLogo} 
-                        alt="ProV9 Neural Brain Logo" 
-                        className="brain-image"
-                      />
+                      <BrainCanvas />
                     </div>
                   </div>
                 </div>

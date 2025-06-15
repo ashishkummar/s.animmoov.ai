@@ -46,12 +46,18 @@ body {
 .logo-icon {
   width: 32px;
   height: 32px;
-  background: linear-gradient(135deg, #4ade80, #06b6d4);
-  border-radius: 8px;
+ 
+  border-radius: 0px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
+   ;
+}
+
+.header-logo-img {
+  width: 32px; /* Adjust as needed, original SVG was effectively 24x24 in a 32x32 container */
+  height: 32px; /* Adjust as needed */
+  display: block; /* To remove any extra space below the image */
 }
 
 .logo-text {
@@ -78,14 +84,35 @@ body {
 }
 
 .nav-link {
-  color: #e2e8f0;
+  color: #e2e8f0; /* Light gray-blue text */
   text-decoration: none;
+  margin-left: 24px; /* Spacing between links */
   font-weight: 500;
-  transition: color 0.2s ease;
+  transition: color 0.3s ease;
+  position: relative; /* Added for pseudo-element positioning */
+  padding-bottom: 4px; /* Add some space for the underline */
 }
 
-.nav-link:hover {
-  color: #06b6d4;
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #4ade80; /* Using the green hover color for the underline */
+  transition: width 0.3s ease-in-out;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: #4ade80; /* Green hover/active color */
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
 }
 
 .demo-btn {
@@ -157,17 +184,21 @@ body {
 }
 
 .brain-container {
+  position: relative;
   width: 100%;
-  max-width: 400px;
-  height: 300px;
+  max-width: 442px; /* Reduced display size */
+  height: 332px;    /* Reduced display size */
+  /* overflow: hidden; /* Not strictly needed unless canvas exceeds container */
 }
 
-.brain-image {
-  width: 100%;
-  height: auto;
-  max-width: 400px;
+/* Canvas styles */
+.brain-canvas {
+  width: 100%; /* Make canvas responsive within its container */
+  height: 100%; /* Make canvas responsive within its container */
+  /* The actual drawing resolution is set in JS, this scales the display */
   filter: drop-shadow(0 0 20px rgba(74, 222, 128, 0.3));
-  animation: pulse 3s ease-in-out infinite;
+  /* Pulse animation can be re-added via canvas if desired, or kept here if it looks good */
+  /* animation: pulse 3s ease-in-out infinite; */
 }
 
 /* Logo Link Styles */
@@ -1247,6 +1278,8 @@ body {
   background: rgba(255, 255, 255, 0.2);
   color: white;
 }
+
+
 
 @media (max-width: 480px) {
   .container {
